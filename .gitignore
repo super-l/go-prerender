@@ -1,0 +1,12 @@
+.idea
+*.log
+logs/
+data/
+*.db
+*.zip
+*.exe
+release
+build
+*.lock
+data/result
+uploads/*

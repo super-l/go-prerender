@@ -1,0 +1,13 @@
+system:
+  logLevel: debug           # 日志等级
+  baseUrl: http://wechat-product.woodfc.cn
+  h5: true
+  cacheTime: 86400  # 2592000 = 30天  604800 = 一周  -1=永久缓存  0=不缓存  单位为秒
+
+browser:
+  show: 0                
+  timeout: 10
+
+httpServ:
+  ip: 127.0.0.1         # 服务器IP地址，如果需要远程访问，则改为外网IP，并开启对应的防火墙端口例外
+  port: 56789           # WEB后台端口
