@@ -60,7 +60,7 @@
 ```
 system:
   logLevel: debug           # 日志等级
-  baseUrl: http://wechat-product.woodfc.cn   # 目标网站的跟网址
+  baseUrl: http://www.xiao6.net   # 目标网站的跟网址
   h5: true          # 是否增加<!doctype html>前缀
   cacheTime: 86400  # 缓存时间 2592000 = 30天  604800 = 一周  -1=永久缓存  0=不缓存  单位为秒
 
@@ -76,10 +76,10 @@ httpServ:
 ## 使用说明
 
 ```
-比如，原本使用vue等构建的网站访问地址为：http://wechat-product.woodfc.cn/
+比如，原本使用vue等构建的网站访问地址为：http://www.xiao6.net/
 
-1： 把原地址域名改为wechat-product-old.woodfc.cn
-2:  nginx新建网站，绑定域名为wechat-product.woodfc.cn，设置反向代理地址为本程序的访问地址。
+1： 把原地址域名改为old.xiao6.net
+2:  nginx新建网站，绑定域名为www.xiao6.net，设置反向代理地址为本程序的访问地址。
 ```
 
 每个页面的第一次访问会慢一些，但会自动生成缓存，第二次则很快。
