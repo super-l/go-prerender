@@ -80,6 +80,40 @@ httpServ:
 
 1： 把原地址域名改为old.xiao6.net
 2:  nginx新建网站，绑定域名为www.xiao6.net，设置反向代理地址为本程序的访问地址。
+
+
+#PROXY-START/
+
+location ^~ /
+{
+    proxy_pass http://127.0.0.1:56777;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header REMOTE-HOST $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection $connection_upgrade;
+    proxy_http_version 1.1;
+    # proxy_hide_header Upgrade;
+
+    add_header X-Cache $upstream_cache_status;
+
+    #Set Nginx Cache
+    
+    
+    set $static_filek737nQap 0;
+    if ( $uri ~* "\.(gif|png|jpg|css|js|woff|woff2)$" )
+    {
+    	set $static_filek737nQap 1;
+    	expires 1m;
+        }
+    if ( $static_filek737nQap = 0 )
+    {
+    add_header Cache-Control no-cache;
+    }
+}
+
+#PROXY-END/
 ```
 
 每个页面的第一次访问会慢一些，但会自动生成缓存，第二次则很快。

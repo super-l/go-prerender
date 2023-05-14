@@ -13,9 +13,8 @@ func SetupRouter(engine *gin.Engine) {
 	engine.GET("/", controller.Index)            // 首页
 	engine.GET("/proxy/*name", controller.Proxy) // 代理
 
-	engine.NoRoute(func(c *gin.Context) {
-
-	})
+	// 全部反向代理
+	engine.NoRoute(controller.Proxy)
 
 	engine.NoMethod(func(c *gin.Context) {
 
